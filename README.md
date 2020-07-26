@@ -8,6 +8,10 @@
 🇬🇧 - HalfHanshaker is a simple tool for **generate fake APs**, previously knowing the essid, in order for a specific victim to automatically connect to the network for having the name memorized for having connected to a network **with the same essid**, **capturing the hanshake** to crack it later.
 
 ![gif](/images/gif.gif)
+
+Youtube video:
+[![Youtube Video](https://img.youtube.com/vi/mVM-643zqsM/0.jpg)](https://www.youtube.com/watch?v=mVM-643zqsM)
+
 ## Ejemplo // Example
 
 ⬇️ 🇪🇸 Aquí unos ejemplos de la sintaxis del script // 🇬🇧 Here some examples of the script syntax ⬇️
