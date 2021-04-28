@@ -1,38 +1,53 @@
-¡Atencion! Esta herramienta esta en desarrollo, por favor, comentar cualquier error // Warning! This tool is in developing, please, report any error
-
 # HalfHandshaker
 ![banner](/images/banner.png)
 
-🇪🇸 - HalfHanshaker es una simple herramienta para **generar APs falsos**, conociendo de antemano el essid, con la finalidad de que una víctima estudiada establezca conexión automáticamente por haberse conectado anteriormente a una red **con el mismo nombre** y así **capturar un handshake** que posteriormente puede ser crackeado.
+🇪🇸 - El objetivo de HalfHandshaker es la obtención de **handshakes sin la necesidad** de tener **alcance** a AP víctima, sino a un cliente de esta red que tenga la red memorizada en alguno de sus dispositivos.
 
-🇬🇧 - HalfHanshaker is a simple tool for **generate fake APs**, previously knowing the essid, in order for a specific victim to automatically connect to the network for having the name memorized for having connected to a network **with the same essid**, **capturing the hanshake** to crack it later.
+Se crea un AP falso con el mismo nombre que el AP víctima y, **automáticamente**, el dispositivo del objetivo **trata de conectarse**, obteniendo así la **contraseña** cifrada o handshake.
+
+Desde que se reescribió la herramienta únicamente se necesita **una interfaz de red** y **no se necesita modo monitor**.
+
+---
+
+🇬🇧 - The objective of HalfHandshaker is to obtain **handshakes without** the need of **being near** the victim AP, otherways it makes use of someone who has the wifi network saved in one of their devices.
+
+A fake AP with the same name as the victim AP is created and, **automatically**, the target device or client **attempt to connect**, obtaining the encrypted **password** or handshake.
+
+Since the script was totally rewritten it only requires **a unique network interface** and it does **not need monitor mode**. 
+
+---
 
 ![gif](/images/gif.gif)
 
-Youtube video:
-[![Youtube Video](https://img.youtube.com/vi/mVM-643zqsM/0.jpg)](https://www.youtube.com/watch?v=mVM-643zqsM)
+---
 
-## Ejemplo // Example
+Click for demo:
+[![Youtube Video](/images/yt.png)](https://www.youtube.com/watch?v=jj3prBX_h3g  "Youtube Video Demo")
 
-⬇️ 🇪🇸 Aquí unos ejemplos de la sintaxis del script // 🇬🇧 Here some examples of the script syntax ⬇️
+---
+
+🇪🇸 - El script está recién salido de beta. Por favor, ¡**reportad cualquier error**, problema o duda!
+
+🇬🇧 - This script is just exitted from the beta version. Please, **report any issue**, problem or doubt!
+
+---
+
+## Ejemplos // Examples
 ```bash
-./halfhanshaker.sh -m 1 -i wlan1 -i2 wlan0 -e "Hotel-09" -o "hotel-net" --hccapx -r
+ ./halfhandshaker.sh -i wlan0 -e "Hotel-Wifi" -o "hotel"
 ```
 ```bash
-./halfhanshaker.sh -m 2 -i wlan1 -e "Hospital-RE" -o "hospital-wifi" --hccapx
+ ./halfhandshaker.sh -i wlan0 -e "Hospital-RE" -r
 ```
 ```bash
-./halfhanshaker.sh -m 1 -i wlan1 -i2 wlan0 -e "Wifi123" -o "wifi" --hccapx -r -d --d-hotspot-mac XX:XX:XX:XX:XX:XX --d-client-mac YY:YY:YY:YY:YY:YY 
+ ./halfhandshaker.sh -i wlan0 -e "Wifi123" -r -o "wifi1"
 ```
 
-⬇️ 🇪🇸 Opción de escaneo de wifi probes // 🇬🇧 Wifi probe scan option ⬇️
-```bash
-./halfhanshaker.sh -s -i wlan1
-```
-![wifi probes scan](/images/probe-scan.png)
+---
+
 ## Autores // Authors
-🇪🇸 Desarrollado por Miguelillo
-con la ayuda de fromCharCode -> muchas gracias :)
+🇪🇸 Desarrollado por **Miguelillo**
+con la ayuda de fromCharCode
 
-🇬🇧 Developed by Miguelillo
-with the help of fromCharCode -> thanks bro! :)
+🇬🇧 Developed by **Miguelillo**
+with the help of fromCharCode
