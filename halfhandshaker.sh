@@ -124,13 +124,13 @@ printout() {
 function check(){
 	# Comprueba si tiene permisos de adminsitrador
 	if [[ "$(id -u)" != "0" ]]; then
-	   echo; echo " $s3 $root_required"; echo
-	   exit 0
+		echo; echo " $s3 $root_required"; echo
+		exit 0
 	fi
 	
 	# Comprobando las herramientas
 	no_tool=0
-	dep_list="tcpdump hostapd ifconfig macchanger xterm python3"
+	dep_list="tcpdump hostapd ip macchanger xterm python3"
 	for dependency in $dep_list; do
 		if [ -z "$(command -v $dependency)" ]; then 
 			echo " $s3 $needs $dependency"
@@ -168,8 +168,9 @@ function check_interface() {
 
 # Mac random
 function random_mac(){
+	echo
 	printf " $s1 $changing_mac "
-	ifconfig $interface down > /dev/null && macchanger -r $interface | grep "New" | awk -F "       " '{print $2}' | head -c 18 && ifconfig $interface up > /dev/null ||  echo " /\ ERROR /\\"
+	ip l s $interface down > /dev/null && macchanger -r $interface | grep "New" | awk -F "       " '{print $2}' | head -c 18 && ip l s $interface up > /dev/null ||  echo " /\ ERROR /\\"
 	echo
 	echo
 }
@@ -177,7 +178,7 @@ function random_mac(){
 # Devolver mac original
 function original_mac(){
 	printf " $s1 $changing_mac_o "
-	ifconfig $interface down && macchanger -p $interface | grep "New" | awk -F "       " '{print $2}' | head -c 18 && ifconfig $interface up || echo " /\ ERROR /\\"
+	ip l s $interface down && macchanger -p $interface | grep "New" | awk -F "       " '{print $2}' | head -c 18 && ip l s $interface up || echo " /\ ERROR /\\"
 	echo
 }
 
