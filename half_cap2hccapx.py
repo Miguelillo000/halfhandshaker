@@ -100,11 +100,15 @@ def generate_hccapx(all_info):
 
 if __name__ == '__main__':
 	if check != "c":
-		hccapxString = generate_hccapx(get_info(choose_pair(split_eapol_packets())))
-		#print(hccapxString)
-		hccapxFile = open(file.split(".cap")[0] + ".hccapx", "wb")
-		hccapxFile.write(bytes.fromhex(hccapxString))
-		hccapxFile.close()
+		try:
+			hccapxString = generate_hccapx(get_info(choose_pair(split_eapol_packets())))
+			#print(hccapxString)
+			hccapxFile = open(file.split(".cap")[0] + ".hccapx", "wb")
+			hccapxFile.write(bytes.fromhex(hccapxString))
+			hccapxFile.close()
+		except:
+			print("error")
+			exit()
 	else:
 		checking = choose_pair(split_eapol_packets())
 		print("1", end="")
