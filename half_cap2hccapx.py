@@ -1,8 +1,12 @@
 from codecs import encode
 import sys
 
-file = sys.argv[2]
-gived_essid = sys.argv[1]
+try:
+	file = sys.argv[2]
+	gived_essid = sys.argv[1]
+except:
+	print(" Error!\n Usage: python half_cap2hccapx.py <essid> <.cap tcdump file>")
+	exit()
 
 try:
 	check = sys.argv[3]
