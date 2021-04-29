@@ -28,39 +28,7 @@ function lang(){
     if [ "$(echo "$LANG" | head -c 2)" == "es" ]; then
         ### SPANISH ###
         # HELP
-        help="""$(tput setaf 2)  _        _ $(tput sgr0) _              _
-$(tput setaf 2) | |      | |$(tput sgr0)| |            | |
-$(tput setaf 2) | |______| |$(tput sgr0)| |____________| |        Version: 1.0
-$(tput setaf 2) |  ______  |$(tput sgr0)|  ____________  | By Miguelillo & fromCharCode
-$(tput setaf 2) | | Half | |$(tput sgr0)| | Handshaker | |         27/04/2021
-$(tput setaf 2) |_|      |_|$(tput sgr0)|_|            |_|
-
-    -> https://github.com/Miguelillo000/halfhandshaker <-
-
-
- Opciones:
- 
- $(tput setaf 2)-h, --help$(tput sgr0)            Muestra esta ayuda
- $(tput setaf 2)-v, --version$(tput sgr0)         Muestra la version del script
-
- 
- $(tput setaf 2)-i, --interface            $(tput setaf 3)<interfaz>$(tput sgr0)   Especifica la interfaz a usar
-
- $(tput setaf 2)-e, --essid    $(tput setaf 3)<nombre>$(tput sgr0)         Especifica el nombre del AP falso
- $(tput setaf 2)-o, --output   $(tput setaf 3)<nombre>$(tput sgr0)         Elige el nombre del archivo .cap y hccapx
- 
- $(tput setaf 2)-n, --no-auto-stop$(tput sgr0)     No para automaticamente cuando se detecta un handshake
- $(tput setaf 2)-r, --random-mac$(tput sgr0)       Cambia la mac de la tarjeta de red por una al azar
- 
-
- Ejemplos:
-
- ./halfhandshaker.sh -i wlan0 -e \"Bar-Juanito\" -o \"red-bar\"
- 
- ./halfhandshaker.sh -i wlan0 -e \"Oficinas-12\" -r
- 
- ./halfhandshaker.sh -i wlan0 -e \"Red-profesores\" -r -o \"wifi-profes\"
-    """
+        help="$(tput setaf 2)  _        _ $(tput sgr0) _              _\n$(tput setaf 2) | |      | |$(tput sgr0)| |            | |\n$(tput setaf 2) | |______| |$(tput sgr0)| |____________| |        Version: 1.0\n$(tput setaf 2) |  ______  |$(tput sgr0)|  ____________  | By Miguelillo & fromCharCode\n$(tput setaf 2) | | Half | |$(tput sgr0)| | Handshaker | |         27/04/2021\n$(tput setaf 2) |_|      |_|$(tput sgr0)|_|            |_|\n\n    -> https://github.com/Miguelillo000/halfhandshaker <-\n\n\n Opciones:\n \n $(tput setaf 2)-h, --help$(tput sgr0)            Muestra esta ayuda\n $(tput setaf 2)-v, --version$(tput sgr0)         Muestra la version del script\n\n \n $(tput setaf 2)-i, --interface            $(tput setaf 3)<interfaz>$(tput sgr0)   Especifica la interfaz a usar\n\n $(tput setaf 2)-e, --essid    $(tput setaf 3)<nombre>$(tput sgr0)         Especifica el nombre del AP falso\n $(tput setaf 2)-o, --output   $(tput setaf 3)<nombre>$(tput sgr0)         Elige el nombre del archivo .cap y hccapx\n \n $(tput setaf 2)-n, --no-auto-stop$(tput sgr0)     No para automaticamente cuando se detecta un handshake\n $(tput setaf 2)-r, --random-mac$(tput sgr0)       Cambia la mac de la tarjeta de red por una al azar\n \n\n Ejemplos:\n\n ./halfhandshaker.sh -i wlan0 -e \"Bar-Juanito\" -o \"red-bar\"\n \n ./halfhandshaker.sh -i wlan0 -e \"Oficinas-12\" -r\n \n ./halfhandshaker.sh -i wlan0 -e \"Red-profesores\" -r -o \"wifi-profes\"\n"
 		root_required="Es necesario ejecutar el script con permisos de administrador"; needs="Falta dependencia:"; valid_essid="Se necesita especificar una essid valida"; valid_interface="Se necesita especificar una interfaz valida"; changing_mac="Cambiando mac ->"; changing_mac_o="Restaurando mac ->"; starting="Iniciando"; ctrl_c="para parar"; file_is="Handshake guardado en"; argumment_in="Argumento invalido"; exists1="El archivo"; exists2="ya existe"; overwrite="¿Quieres sobreescribirlo?"; exiting="Saliendo..."; option_in="Opcion invalida"; saving_err="Error al guardar"
     else
 
@@ -68,39 +36,7 @@ $(tput setaf 2) |_|      |_|$(tput sgr0)|_|            |_|
 
         # HELP
 
-        help="""$(tput setaf 2)  _        _ $(tput sgr0) _              _ 
-$(tput setaf 2) | |      | |$(tput sgr0)| |            | |
-$(tput setaf 2) | |______| |$(tput sgr0)| |____________| |         Beta 0.5
-$(tput setaf 2) |  ______  |$(tput sgr0)|  ____________  | By Miguelillo & fromCharCode
-$(tput setaf 2) | | Half | |$(tput sgr0)| | Handshaker | |        28/06/2020
-$(tput setaf 2) |_|      |_|$(tput sgr0)|_|            |_|
- 
-    -> https://github.com/Miguelillo000/halfhandshaker <-
-
- 
- Options:
- 
- $(tput setaf 2)-h, --help$(tput sgr0)            Show help
- $(tput setaf 2)-v, --version$(tput sgr0)         Show script version
- 
- 
- $(tput setaf 2)-i, --interface            $(tput setaf 3)<interface>$(tput sgr0)   Set the network interface
- 
- $(tput setaf 2)-e, --essid    $(tput setaf 3)<name>$(tput sgr0)         Set the fake AP's name
- $(tput setaf 2)-o, --output   $(tput setaf 3)<name>$(tput sgr0)         Set the name of the cap and hccapx files
- 
- $(tput setaf 2)-n, --no-auto-stop$(tput sgr0)     Does not stop automatically when a handshake is captured
- $(tput setaf 2)-r, --random-mac$(tput sgr0)       Change the mac address of the interface by a random one
- 
- 
- Ejemplos:
-
- ./halfhandshaker.sh -i wlan0 -e \"John-pub\" -o \"pub-net\"
- 
- ./halfhandshaker.sh -i wlan0 -e \"Offices-12\" -r
- 
- ./halfhandshaker.sh -i wlan0 -e \"SchoolNet\" -r -o \"teachers-wifi\"
-    """
+        help="$(tput setaf 2)  _        _ $(tput sgr0) _              _ \n$(tput setaf 2) | |      | |$(tput sgr0)| |            | |\n$(tput setaf 2) | |______| |$(tput sgr0)| |____________| |         Beta 0.5\n$(tput setaf 2) |  ______  |$(tput sgr0)|  ____________  | By Miguelillo & fromCharCode\n$(tput setaf 2) | | Half | |$(tput sgr0)| | Handshaker | |        28/06/2020\n$(tput setaf 2) |_|      |_|$(tput sgr0)|_|            |_|\n \n    -> https://github.com/Miguelillo000/halfhandshaker <-\n\n \n Options:\n \n $(tput setaf 2)-h, --help$(tput sgr0)            Show help\n $(tput setaf 2)-v, --version$(tput sgr0)         Show script version\n \n \n $(tput setaf 2)-i, --interface            $(tput setaf 3)<interface>$(tput sgr0)   Set the network interface\n \n $(tput setaf 2)-e, --essid    $(tput setaf 3)<name>$(tput sgr0)         Set the fake AP's name\n $(tput setaf 2)-o, --output   $(tput setaf 3)<name>$(tput sgr0)         Set the name of the cap and hccapx files\n \n $(tput setaf 2)-n, --no-auto-stop$(tput sgr0)     Does not stop automatically when a handshake is captured\n $(tput setaf 2)-r, --random-mac$(tput sgr0)       Change the mac address of the interface by a random one\n \n \n Ejemplos:\n\n ./halfhandshaker.sh -i wlan0 -e \"John-pub\" -o \"pub-net\"\n \n ./halfhandshaker.sh -i wlan0 -e \"Offices-12\" -r\n \n ./halfhandshaker.sh -i wlan0 -e \"SchoolNet\" -r -o \"teachers-wifi\"\n    "
     	root_required="Root priveleges are necessary"; needs="Missing dependency "; valid_essid="A valid essid is required"; valid_interface="A valid interface is required"; changing_mac="Changing mac ->"; changing_mac_o="Restoring mac ->"; starting="Starting"; ctrl_c="to stop"; file_is="Handshake saved in"; argumment_in="Invalid argumment"; exists1="File"; exists2="already exists"; overwrite="Overwrite it?"; exiting="Exitting..."; option_in="Invalid option"; saving_err="Error at saving"
     fi
 
@@ -109,7 +45,7 @@ lang
 
 # Ayuda
 function show_help(){
-	echo "$help"
+	echo -e "$help"
 	exit 0
 }
 
