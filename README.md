@@ -1,11 +1,17 @@
 # HalfHandshaker
 ![banner](/images/banner.png)
 
+
 🇪🇸 - El objetivo de HalfHandshaker es la obtención de **handshakes sin la necesidad** de tener **alcance** a AP víctima, sino a un cliente de esta red que tenga la red memorizada en alguno de sus dispositivos.
 
 Se crea un AP falso con el mismo nombre que el AP víctima y, **automáticamente**, el dispositivo del objetivo **trata de conectarse**, obteniendo así la **contraseña** cifrada o handshake.
 
 Desde que se reescribió la herramienta únicamente se necesita **una interfaz de red** y **no se necesita modo monitor**.
+
+
+Aquí un artículo acerca de esta herramienta escrito por [Javier Jiménez](https://www.redeszone.net/autor/javier-jimenez), redactor en el grupo [ADSLZone](https://www.adslzone.net/) desde 2016:
+
+[![Artículo de ADSLZone](https://i.ibb.co/djfq0Qj/redeszone-click200.png)](https://www.redeszone.net/noticias/seguridad/obtener-handshakes-halfhandshaker/  "Artículo de ADSLZone")
 
 ---
 
